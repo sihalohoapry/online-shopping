@@ -1,6 +1,5 @@
 package net.apry.onlineshopping.controller;
 
-import javax.faces.flow.builder.ReturnBuilder;
 
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.PathVariable;
@@ -15,10 +14,47 @@ public class PageController {
 	public ModelAndView index() {
 		ModelAndView mv = new ModelAndView("page");
 
-		mv.addObject("greeting", "Welcome to Spring Web MVC");
-
+		mv.addObject("title", "Home");
+		mv.addObject("userClickHome", true);
 		return mv;
 	}
+	
+	@RequestMapping(value = "/about" )
+	public ModelAndView about() {
+		ModelAndView mv = new ModelAndView("page");
+
+		mv.addObject("title", "About");
+		mv.addObject("userClickAbout", true);
+		return mv;
+		
+	}
+	
+	@RequestMapping(value = "/allproducts" )
+	public ModelAndView allproducts() {
+		ModelAndView mv = new ModelAndView("page");
+
+		mv.addObject("title", "All Products");
+		mv.addObject("userClickAllProducts", true);
+		return mv;
+	}
+	
+	@RequestMapping(value = "/popularitems" )
+	public ModelAndView popularitems() {
+		ModelAndView mv = new ModelAndView("page");
+
+		mv.addObject("title", "Popular Items");
+		mv.addObject("userClickPopularItems", true);
+		return mv;
+	}
+	@RequestMapping(value = "/newarrivals" )
+	public ModelAndView newarrivals() {
+		ModelAndView mv = new ModelAndView("page");
+
+		mv.addObject("title", "newarrivals");
+		mv.addObject("userClickNewArrivals", true);
+		return mv;
+	}
+	
 
 	@RequestMapping(value = "/requestParam")
 	public ModelAndView requestParam(@RequestParam(value ="greeting", required = false) String greeting) {
