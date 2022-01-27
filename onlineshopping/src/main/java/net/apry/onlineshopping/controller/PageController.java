@@ -57,52 +57,59 @@ public class PageController {
 		Category category = null;
 		category = categoryDao.get(id);
 
-		mv.addObject("title", "All Products");
-		mv.addObject("userClickAllProducts", true);
-		return mv;
-	}
-	
-	@RequestMapping(value = "/popularitems" )
-	public ModelAndView popularitems() {
-		ModelAndView mv = new ModelAndView("page");
-
-		mv.addObject("title", "Popular Items");
-		mv.addObject("userClickPopularItems", true);
-		return mv;
-	}
-	@RequestMapping(value = "/newarrivals" )
-	public ModelAndView newarrivals() {
-		ModelAndView mv = new ModelAndView("page");
-
-		mv.addObject("title", "newarrivals");
-		mv.addObject("userClickNewArrivals", true);
-		return mv;
-	}
-	
-
-	@RequestMapping(value = "/requestParam")
-	public ModelAndView requestParam(@RequestParam(value ="greeting", required = false) String greeting) {
+		mv.addObject("title", category.getName());
 		
-		if(greeting ==null) {
-			greeting = "Holla bitch";
-		}
+		//pasing list category
+		mv.addObject("categories",categoryDao.list());
 		
-		ModelAndView mv = new ModelAndView("page");
-
-		mv.addObject("greeting", greeting);
-
+		//pasing the single category object
+		mv.addObject("category", category);
+		
+		mv.addObject("userClickCategoryProducts", true);
 		return mv;
 	}
 	
-	@RequestMapping(value="/pathVariable/{greeting}")
-	public ModelAndView pathVariable(@PathVariable("greeting")String greeting) {
-		if(greeting==null) {
-			greeting = "Holla Bitch";
-		}
-		ModelAndView mv = new ModelAndView("page");
-		mv.addObject("greeting", greeting);
-		return mv;
-	}
+//	@RequestMapping(value = "/popularitems" )
+//	public ModelAndView popularitems() {
+//		ModelAndView mv = new ModelAndView("page");
+//
+//		mv.addObject("title", "Popular Items");
+//		mv.addObject("userClickPopularItems", true);
+//		return mv;
+//	}
+//	@RequestMapping(value = "/newarrivals" )
+//	public ModelAndView newarrivals() {
+//		ModelAndView mv = new ModelAndView("page");
+//
+//		mv.addObject("title", "newarrivals");
+//		mv.addObject("userClickNewArrivals", true);
+//		return mv;
+//	}
+//	
+//
+//	@RequestMapping(value = "/requestParam")
+//	public ModelAndView requestParam(@RequestParam(value ="greeting", required = false) String greeting) {
+//		
+//		if(greeting ==null) {
+//			greeting = "Holla bitch";
+//		}
+//		
+//		ModelAndView mv = new ModelAndView("page");
+//
+//		mv.addObject("greeting", greeting);
+//
+//		return mv;
+//	}
+//	
+//	@RequestMapping(value="/pathVariable/{greeting}")
+//	public ModelAndView pathVariable(@PathVariable("greeting")String greeting) {
+//		if(greeting==null) {
+//			greeting = "Holla Bitch";
+//		}
+//		ModelAndView mv = new ModelAndView("page");
+//		mv.addObject("greeting", greeting);
+//		return mv;
+//	}
 	
 	
 	

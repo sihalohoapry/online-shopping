@@ -18,11 +18,11 @@
 					role="button" data-bs-toggle="dropdown" aria-expanded="false">Shop</a>
 					<ul class="dropdown-menu" aria-labelledby="navbarDropdown">
 						<li><a class="dropdown-item"
-							href="${contextRoot}/allproducts">All Products</a></li>
+							href="${contextRoot}/show/all/products">All Products</a></li>
 
 						<c:forEach items="${categories}" var="category">
 							<li><a class="dropdown-item"
-								href="${contextRoot}/allproducts">${category.name}</a></li>
+								href="${contextRoot}/show/category/${category.id}/products">${category.name}</a></li>
 						</c:forEach>
 						
 						
