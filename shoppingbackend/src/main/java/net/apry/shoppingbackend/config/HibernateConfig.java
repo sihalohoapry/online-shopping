@@ -19,11 +19,11 @@ import org.springframework.transaction.annotation.EnableTransactionManagement;
   
 public class HibernateConfig {
 	
-	private final static String DATABASE_URL = "jdbc:h2:~/onlineshopping";
+	private final static String DATABASE_URL = "jdbc:h2:tcp://localhost/~/onlineshopping";
 	private final static String DATABASE_DRIVER = "org.h2.Driver";
 	private final static String DATABASE_DIALECT = "org.hibernate.dialect.H2Dialect";
 	private final static String DATABASE_USERNAME = "sa";
-	private final static String DATABASE_PASSWORD = "jdbc:h2:~/onlineshopping";
+	private final static String DATABASE_PASSWORD = "";
 	
 	
 	//dataSOurce bean will be availabe
@@ -55,9 +55,7 @@ public class HibernateConfig {
 		
 	}
 
-	private Properties getHibernatePropertis() {
-		// TODO Auto-generated method stub
-		
+	private Properties getHibernatePropertis() {		
 		Properties properties = new Properties();
 		properties.put("hibernate.dialect", DATABASE_DIALECT);
 		properties.put("hibernate.show_sql", "true");
