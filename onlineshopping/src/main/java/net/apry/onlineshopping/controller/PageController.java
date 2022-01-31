@@ -69,47 +69,7 @@ public class PageController {
 		return mv;
 	}
 	
-//	@RequestMapping(value = "/popularitems" )
-//	public ModelAndView popularitems() {
-//		ModelAndView mv = new ModelAndView("page");
-//
-//		mv.addObject("title", "Popular Items");
-//		mv.addObject("userClickPopularItems", true);
-//		return mv;
-//	}
-//	@RequestMapping(value = "/newarrivals" )
-//	public ModelAndView newarrivals() {
-//		ModelAndView mv = new ModelAndView("page");
-//
-//		mv.addObject("title", "newarrivals");
-//		mv.addObject("userClickNewArrivals", true);
-//		return mv;
-//	}
-//	
-//
-//	@RequestMapping(value = "/requestParam")
-//	public ModelAndView requestParam(@RequestParam(value ="greeting", required = false) String greeting) {
-//		
-//		if(greeting ==null) {
-//			greeting = "Holla bitch";
-//		}
-//		
-//		ModelAndView mv = new ModelAndView("page");
-//
-//		mv.addObject("greeting", greeting);
-//
-//		return mv;
-//	}
-//	
-//	@RequestMapping(value="/pathVariable/{greeting}")
-//	public ModelAndView pathVariable(@PathVariable("greeting")String greeting) {
-//		if(greeting==null) {
-//			greeting = "Holla Bitch";
-//		}
-//		ModelAndView mv = new ModelAndView("page");
-//		mv.addObject("greeting", greeting);
-//		return mv;
-//	}
+
 	
 	
 	

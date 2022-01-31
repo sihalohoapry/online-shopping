@@ -45,8 +45,8 @@ public class CategoryTestCase {
 	
 //	@Test
 //	public void testUpdateCategory() {
-//		category = categoryDao.get(3);
-//		category.setName("Mobile");
+//		category = categoryDao.get(1);
+//		category.setName("Laptop Gaming");
 //		assertEquals("Successfully update",true,categoryDao.update(category));
 //		
 //	}
