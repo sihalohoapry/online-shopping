@@ -9,26 +9,57 @@ $(function() {
 		break;
 	}
 
-	// code for jquery dataTable
-	// create data set
-
-	var products = [
-
-	[ '1', 'ABC' ], [ '2', 'dfg' ], [ '3', 'hij' ], [ '4', 'klm' ],
-			[ '5', 'nop' ], [ '6', 'qrs' ], [ '7', 'tuv' ], [ '8', 'wxy' ], [ '8', 'wxy' ], [ '8', 'wxy' ], [ '8', 'wxy' ], [ '8', 'wxy' ], [ '8', 'wxy' ], [ '8', 'wxy' ]
-
-	];
-
 	var $table = $('#productListTable');
 
-	// execiute the below code only where we have this table
-
 	if ($table.length) {
-		 console.log('Inside the table ');
+		 
+//		console.log('Inside the table ');
+
+		// execiute the below code only where we have this table
+
+		var jsonUrl = '';
+		if (window.categoryId == '') {
+			jsonUrl = window.contextRoot + '/json/data/all/products';
+		} else {
+			jsonUrl = window.contextRoot + '/json/data/category/'
+					+ window.categoryId + '/products';
+		} 
 		$table.DataTable({
-			lengthMenu: [[3,5,10,-1],['3 Data', '5 Data', '10 Data', 'Semua']],
-			pageLength: 5,
-			data : products
+			lengthMenu : [ [ 3, 5, 10, -1 ],
+					[ '3 Data', '5 Data', '10 Data', 'Semua' ] ],
+			pageLength : 5,
+			ajax: {
+				url: jsonUrl,
+				dataSrc: '',
+				
+			},
+			columns: [
+				{
+					data: 'name',
+				},
+				{
+					data: 'brand'
+				},
+				{
+					data: 'untiPrice',
+					mRender: function(data, type, row){
+						return 'Rp ' + data
+					}
+				},
+				{
+					data: 'quantity'
+				},
+				{
+					data: 'id',
+					mRender: function (data, type, row){
+						var str = '';
+						str += '<a href= "' +window.contextRoot+'/show/'+data+'/product" class="btn btn-primary mr-5">Lihat</a>&#160;';
+						str += '<a href= "' +window.contextRoot+'/cart/add/'+data+'/product " class="btn btn-success ml-5">Add to Cart</a>';
+						return str;
+					}
+						
+				},
+			]
 		});
 	}
 

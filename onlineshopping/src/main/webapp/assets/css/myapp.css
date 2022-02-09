@@ -1,3 +1,4 @@
+
 @charset "UTF-8";
 /*!
 * Start Bootstrap - Shop Homepage v5.0.4 (https://startbootstrap.com/template/shop-homepage)
@@ -10842,7 +10843,8 @@ keyframes placeholder-wave { 100% {
 }
 
 .footer {
-	width: 100% position: absolute;
-	bottom: 20px;
+	width: 100% ;
+	position: absolute !important;
+	bottom: 0;
 	height: 40px;
 }
