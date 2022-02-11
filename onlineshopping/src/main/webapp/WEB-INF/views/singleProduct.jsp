@@ -17,7 +17,8 @@
 
 			<div class="thumbnail">
 
-				<img src="${images}/${product.code}.jpg" width="400px" class="img img-responsive" />
+				<img src="${images}/${product.code}.jpg" width="400px"
+					class="img img-responsive" />
 
 			</div>
 
@@ -31,13 +32,48 @@
 			<h4>
 				Price: <strong>Rp ${product.untiPrice}</strong>
 			</h4>
-			<h6>
-				Qty. Available: <strong>Rp ${product.quantity}</strong>
-			</h6>
 
-			<a href="${contextRoot}/cart/add/${product.id}/product"
-				class="btn btn-primary">Add to Cart</a> <a
-				href="${contextRoot}/show/all/product" class="btn btn-success">Back</a>
+
+			<c:choose>
+
+				<c:when test="${product.quantity <1 }">
+
+					<h6>
+						Qty. Available: <span class="text-danger">Out of Stoct!</span>
+					</h6>
+
+				</c:when>
+
+				<c:otherwise>
+
+					<h6>
+						Qty. Available: <strong> ${product.quantity}</strong>
+					</h6>
+
+				</c:otherwise>
+
+			</c:choose>
+
+
+			<c:choose>
+
+				<c:when test="${product.quantity <1}">
+
+					<a href="javascript:void(0)" class="btn btn-success disabled"> <strike>Add to Cart</strike>  </a>
+
+				</c:when>
+
+				<c:otherwise>
+
+					<a href="${contextRoot}/cart/add/${product.id}/product"
+						class="btn btn-success">Add to Cart</a>
+
+				</c:otherwise>
+
+			</c:choose>
+
+
+			<a href="${contextRoot}/show/all/product" class="btn btn-primary">Back</a>
 
 		</div>
 

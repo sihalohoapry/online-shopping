@@ -12,7 +12,7 @@
    ">
 
 	<context:component-scan
-		base-package="net.apry.onlineshopping.controller"></context:component-scan>
+		base-package="net.apry.onlineshopping"></context:component-scan>
 
 	<context:component-scan
 		base-package="net.apry.shoppingbackend"></context:component-scan>
