@@ -30,6 +30,11 @@
 						
 
 					</ul></li>
+			
+				<li class="nav-item"><a class="nav-link" id="manageProducts"
+					aria-current="page" href="${contextRoot}/manage/products">Manage Products</a>
+					</li>
+			
 			</ul>
 			<form class="d-flex">
 				<button class="btn btn-outline-dark" type="submit">

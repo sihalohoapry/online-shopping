@@ -40,8 +40,8 @@ public class Product {
 	@Column(name="views")
 	private int view;
 	
-	
-	
+
+
 	public Product() {
 		this.code = "PRD" + UUID.randomUUID().toString().substring(26).toUpperCase();
 	}
@@ -121,6 +121,14 @@ public class Product {
 	}
 	
 	
+	@Override
+	public String toString() {
+		return "Product [id=" + id + ", code=" + code + ", name=" + name + ", brand=" + brand + ", description="
+				+ description + ", untiPrice=" + untiPrice + ", quantity=" + quantity + ", active=" + active
+				+ ", categoryId=" + categoryId + ", supplierId=" + supplierId + ", purchases=" + purchases + ", view="
+				+ view + "]";
+	}
+
 	
 	
 
