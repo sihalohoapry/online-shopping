@@ -2,6 +2,7 @@ package net.apry.onlineshopping.controller;
 
 import java.util.List;
 
+import javax.servlet.http.HttpServletRequest;
 import javax.validation.Valid;
 
 import org.slf4j.Logger;
@@ -17,6 +18,7 @@ import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.servlet.ModelAndView;
 import org.springframework.web.servlet.ModelAndViewDefiningException;
 
+import net.apry.onlineshopping.ProductValidator;
 import net.apry.onlineshopping.util.FileUploadUtility;
 import net.apry.shoppingbackend.dao.CategoryDao;
 import net.apry.shoppingbackend.dao.ProductDAO;
@@ -62,7 +64,10 @@ public class ManagementController {
 	
 	//store
 	@RequestMapping(value="/products", method=RequestMethod.POST)
-	public String handleProductSubmission(@Valid @ModelAttribute("product") Product mProduct, BindingResult result, Model model) {
+	public String handleProductSubmission(@Valid @ModelAttribute("product") Product mProduct, BindingResult result, Model model,
+			HttpServletRequest request) {
+		
+		new ProductValidator().validate(mProduct, result);
 		
 		if(result.hasErrors()) {
 			
@@ -70,12 +75,12 @@ public class ManagementController {
 			model.addAttribute("title","Manage Products");
 			return "page";
 		}
-		
+		mProduct.setActive(true);
 		logger.info(mProduct.toString());
 		productDAO.add(mProduct);
 		
 		if(!mProduct.getFile().getOriginalFilename().equals("")) {
-			FileUploadUtility.uploadFile();
+			FileUploadUtility.uploadFile(request,mProduct.getFile(),mProduct.getCode());
 		}
 		
 		return "redirect:/manage/products?operation=product";

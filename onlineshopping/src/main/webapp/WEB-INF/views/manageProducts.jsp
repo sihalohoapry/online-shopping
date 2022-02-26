@@ -84,7 +84,7 @@
 						<div class="form-group">
 							<label for="file">Image</label>
 							<sf:input type="file"  path="file" class="form-control" />
-							<sf:errors path="file" />
+							<sf:errors path="file" cssClass="help-block" element="em" />
 						</div>
 					</div>
 
@@ -103,5 +103,121 @@
 			</sf:form>
 		</div>
 	</div>
-
+	
+	<div class="row">
+	
+		<div class="col-xs-12">
+			<h3>Available Products</h3>
+		</div>
+	
+		<div class="col-xs-12 mb-5">
+		
+			<div style="overflow:auto">
+			
+				<table id="adminProductsTable" class="table table-striped table-bordered">
+								
+					<thead>
+					
+						<tr>
+						
+							<th>Id</th>
+							<th>&#160</th>
+							<th>Name</th>
+							<th>Quantity</th>
+							<th>Unit Price</th>
+							<th>Active</th>
+							<th>Edit</th>
+							
+						
+						</tr>
+					
+					</thead>
+					
+					<tbody>
+					
+						<tr>
+							
+							<td>4</td>
+							<td>
+								<img class="adminDataTableImg" src="${contextRoot}/resources/images/PRDMNO123PQRX.jpg" style="width:50px;
+	height: 50px;" alt=" Macbook Pro"/>
+							</td>
+							<td>Macbook Pro</td>
+							<td>3</td>
+							<td>Rp 21000000</td>
+							<td>
+								<label class="switch">
+									
+									<input type="checkbox" checked="checked" value="4"/>
+									<div class="slider">
+										
+										
+									
+									</div>
+								
+								</label>
+							</td>
+							<td>
+							
+								<a href="${contextRoot}/manage/4/product" class="btn btn-warning">Delete</a>
+							
+							</td>
+						</tr>
+					
+						<tr>
+							
+							<td>4</td>
+							<td>
+								<img class="adminDataTableImg" src="${contextRoot}/resources/images/PRDMNO123PQRX.jpg" style="width:50px;
+	height: 50px;" alt=" Macbook Pro"/>
+							</td>
+							<td>Macbook Pro</td>
+							<td>3</td>
+							<td>Rp 21000000</td>
+							<td>
+								<label class="switch">
+									
+									<input type="checkbox"  value="4"/>
+									<div class="slider">
+										
+										
+									
+									</div>
+								
+								</label>
+							</td>
+							<td>
+							
+								<a href="${contextRoot}/manage/4/product" class="btn btn-warning">Delete</a>
+							
+							</td>
+						</tr>
+					
+					</tbody>
+					
+					<tfoot>
+					<tr>
+						
+							<th>Id</th>
+							<th>&#160</th>
+							<th>Name</th>
+							<th>Quantity</th>
+							<th>Unit Price</th>
+							<th>Active</th>
+							<th>Edit</th>
+							
+						
+						</tr>
+					</tfoot>
+				
+				
+				</table>
+				
+			
+			</div>
+		
+		</div>
+	
+	
+	</div>
 </div>
