@@ -35,10 +35,9 @@ public class Product {
 	@Column(name="unit_price")
 	private double untiPrice;
 	
-	@Min(value=1)
+	
 	private int quantity;
 	@Column(name="is_active")
-	@JsonIgnore
 	private boolean active;
 	@Column(name="category_id")
 	@JsonIgnore
