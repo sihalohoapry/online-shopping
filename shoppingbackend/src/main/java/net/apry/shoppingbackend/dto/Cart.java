@@ -17,6 +17,7 @@ public class Cart {
 	//relationship//
 	@OneToOne
 	private User user;
+	// user harus disamakan di @onetoone(mappedby ="") di model user
 	
 	public User getUser() {
 		return user;
@@ -65,10 +66,6 @@ public class Cart {
 		return "Cart [id=" + id + ", grandTotal=" + grandTotal + ", cartLines=" + cartLines
 				+ "]";
 	}
-	
-	
-	
-	
-	
+		
 
 }

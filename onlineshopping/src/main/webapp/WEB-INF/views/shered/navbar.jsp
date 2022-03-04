@@ -34,14 +34,23 @@
 				<li class="nav-item"><a class="nav-link" id="manageProducts"
 					aria-current="page" href="${contextRoot}/manage/products">Manage Products</a>
 					</li>
+					
+				
 			
 			</ul>
-			<form class="d-flex">
+			
+			<form class="d-flex mr-4">
 				<button class="btn btn-outline-dark" type="submit">
 					<i class="bi-cart-fill me-1"></i> Cart <span
 						class="badge bg-dark text-white ms-1 rounded-pill">0</span>
 				</button>
 			</form>
+			
+			<div class="d-flex" style="margin-left:20px;">
+					<a class="btn btn-outline-dark ml-4" id="manageProducts"  href="${contextRoot}/register">Sign Up</a>
+					<a class="btn btn-outline-dark ml-4" style="margin-left:10px; id="manageProducts"  href="${contextRoot}/login">Login</a>
+				</div>
+			
 		</div>
 	</div>
 </nav>
