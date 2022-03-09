@@ -49,4 +49,4 @@
 
 		<!-- content -->
 
-		<div class="content mt-5">
+		<div class="content mt-3">

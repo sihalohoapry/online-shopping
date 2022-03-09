@@ -1,5 +1,7 @@
 package net.apry.shoppingbackend.dto;
 
+import java.io.Serializable;
+
 import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
@@ -11,8 +13,13 @@ import javax.persistence.Table;
 
 @Entity
 @Table(name="user_detail")
-public class User {
+public class User implements Serializable {
 	
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = 1L;
+
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private int id;
@@ -23,6 +30,22 @@ public class User {
 	@Column(name="last_name")
 	private String lastName;
 	
+	@Column(name="contact_number")
+	private String contactNumber;
+	
+	public String getContactNumber() {
+		return contactNumber;
+	}
+	public void setContactNumber(String contactNumber) {
+		this.contactNumber = contactNumber;
+	}
+	private String email;
+	public String getEmail() {
+		return email;
+	}
+	public void setEmail(String email) {
+		this.email = email;
+	}
 	private String role;
 	private String password;
 	private boolean enabled = true;
@@ -75,8 +98,9 @@ public class User {
 	}
 	@Override
 	public String toString() {
-		return "User [id=" + id + ", firstName=" + firstName + ", lastName=" + lastName + ", role=" + role
-				+ ", password=" + password + ", enabled=" + enabled + "]";
+		return "User [id=" + id + ", firstName=" + firstName + ", lastName=" + lastName + ", contactNumber="
+				+ contactNumber + ", email=" + email + ", role=" + role + ", password=" + password + ", enabled="
+				+ enabled + ", cart=" + cart + "]";
 	}	
 	
 	

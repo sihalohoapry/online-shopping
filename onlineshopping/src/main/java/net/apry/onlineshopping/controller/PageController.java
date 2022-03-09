@@ -98,14 +98,11 @@ public class PageController {
 		
 		//
 		
-		
 		mv.addObject("title", product.getName());
 		mv.addObject("product", product);
-		mv.addObject("userClickShowProduct", true);		
-		
+		mv.addObject("userClickShowProduct", true);				
 		return mv;
 	}
-	
 	
 	@RequestMapping(value = "/register")
 	public ModelAndView register() {

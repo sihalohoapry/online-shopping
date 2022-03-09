@@ -1,5 +1,7 @@
 package net.apry.shoppingbackend.dto;
 
+import java.io.Serializable;
+
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
@@ -7,9 +9,16 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.ManyToOne;
 
+import org.hibernate.validator.constraints.NotBlank;
+
 @Entity
-public class Address {
+public class Address implements Serializable{
 	
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = 1L;
+
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private int id;
@@ -25,7 +34,26 @@ public class Address {
 	}
 
 
-	private String address;
+	@NotBlank(message = "Please enter address line one!")
+	@Column(name = "address_line_one")
+	private String addressLineOne;
+	public String getAddressLineOne() {
+		return addressLineOne;
+	}
+	public void setAddressLineOne(String addressLineOne) {
+		this.addressLineOne = addressLineOne;
+	}
+	public String getAddressLineTwo() {
+		return addressLineTwo;
+	}
+	public void setAddressLineTwo(String addressLineTwo) {
+		this.addressLineTwo = addressLineTwo;
+	}
+
+
+	@NotBlank(message = "Please enter address line two!")	
+	@Column(name = "address_line_two")
+	private String addressLineTwo;
 	private String city;
 	private String state;
 	private String country;
@@ -40,12 +68,6 @@ public class Address {
 	}
 	public void setId(int id) {
 		this.id = id;
-	}
-	public String getAddress() {
-		return address;
-	}
-	public void setAddress(String address) {
-		this.address = address;
 	}
 	public String getCity() {
 		return city;
@@ -87,9 +109,9 @@ public class Address {
 	
 	@Override
 	public String toString() {
-		return "Address [id=" + id + ",  address=" + address + ", city=" + city + ", state="
-				+ state + ", country=" + country + ", postalCode=" + postalCode + ", shipping=" + shipping
-				+ ", billing=" + billing + "]";
+		return "Address [id=" + id + ", user=" + user + ", addressLineOne=" + addressLineOne + ", addressLineTwo="
+				+ addressLineTwo + ", city=" + city + ", state=" + state + ", country=" + country + ", postalCode="
+				+ postalCode + ", shipping=" + shipping + ", billing=" + billing + "]";
 	}
 	
 	
