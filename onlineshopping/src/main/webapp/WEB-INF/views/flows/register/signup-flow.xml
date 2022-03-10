@@ -11,14 +11,21 @@
 	<on-start>
 		<evaluate expression="registerHandler.init()" result="flowScope.registerModel"/>
 	</on-start>
-
+	
 	<!-- is the start state -->
 	<view-state id="personal" view="flows/register/signup-personal" model="user">
-		<transition on="billing" to="billing"/>
+		<transition on="billing" to="validate"/>
 		<on-exit>
 			<evaluate expression="registerHandler.addUser(flowScope.registerModel, user)" />
 		</on-exit>
 	</view-state>
+	
+	<action-state id="validate">
+			<evaluate expression="registerHandler.validateUser(user, messageContext)"/>
+			<transition on="success" to="billing"/>
+			<transition on="failure" to="personal"/>
+	</action-state>
+	
 	<view-state id="billing" view="flows/register/signup-billing" model="billing">
 		<transition on="personal" to="personal"/>
 		<transition on="confirm" to="confirm"/>
@@ -27,10 +34,18 @@
 		</on-exit>
 	</view-state>
 	<view-state id="confirm" view="flows/register/signup-confirm" model="flowScope.registerModel">
+		<transition on="submit" to="submit"/>
 		<transition on="personal" to="personal"/>
 		<transition on="billing" to="billing"/>
-		<transition on="success" to="success"/>
+		
 	</view-state>
+	
+	<action-state id="submit">
+	
+		<evaluate expression="registerHandler.saveAll(flowScope.registerModel)"/>
+		<transition on="success" to="success"/>
+	
+	</action-state>
 	
 	<!-- end state -->
 	<end-state id="home" view="externalRedirect:contextRelative:/"/>
@@ -39,7 +54,7 @@
 	<!-- Global transition -->
 	
 	<global-transitions>
-		<transition on="home" to="home"/>
+		<transition on="home" to="home" validate="false"/>
 	</global-transitions>
 
 </flow>

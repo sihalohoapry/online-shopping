@@ -32,7 +32,7 @@
 							</div>
 
 							<div class="form-group">
-								<label class="control-label col-md-4" for="address">Address Line Two</label>
+								<label class="control-label col-md-4" for="addressLineTwo">Address Line Two</label>
 								<div class="col-md-8">
 									<sf:input type="text" path="addressLineTwo" class="form-control"
 										placeholder="Enter Address Line Two" />
@@ -77,7 +77,7 @@
 							</div>
 							
 							
-							<div class="form-group">
+							<div class="form-group mb-5">
 								<div class="col-md-offset-4 col-md-8">
 									<button type="submit" name="_eventId_personal" class="btn btn-primary">
 										<span class="glyphicon glyphicon-chevron-left"></span> Back - Personal

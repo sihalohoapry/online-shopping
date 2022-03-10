@@ -22,21 +22,31 @@ public class Address implements Serializable{
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private int id;
-	
-	@ManyToOne
-	private User user;
-	
-	public User getUser() {
-		return user;
-	}
-	public void setUser(User user) {
-		this.user = user;
-	}
-
-
 	@NotBlank(message = "Please enter address line one!")
 	@Column(name = "address_line_one")
 	private String addressLineOne;
+	@NotBlank(message = "Please enter address line two!")	
+	@Column(name = "address_line_two")
+	private String addressLineTwo;
+	@NotBlank(message = "Please enter City!")	
+	private String city;
+	@NotBlank(message = "Please enter State!")	
+	private String state;
+	@NotBlank(message = "Please enter country!")	
+	private String country;
+	@Column(name ="postal_code")
+	@NotBlank(message = "Please enter Postal Code!")	
+	private String postalCode;
+	@Column(name="is_shipping")
+	private boolean shipping;
+	@Column(name="is_billing")
+	private boolean billing;
+	public int getId() {
+		return id;
+	}
+	public void setId(int id) {
+		this.id = id;
+	}
 	public String getAddressLineOne() {
 		return addressLineOne;
 	}
@@ -48,26 +58,6 @@ public class Address implements Serializable{
 	}
 	public void setAddressLineTwo(String addressLineTwo) {
 		this.addressLineTwo = addressLineTwo;
-	}
-
-
-	@NotBlank(message = "Please enter address line two!")	
-	@Column(name = "address_line_two")
-	private String addressLineTwo;
-	private String city;
-	private String state;
-	private String country;
-	
-	@Column(name="postal_code")
-	private String postalCode;
-	
-	private boolean shipping;
-	private boolean billing;
-	public int getId() {
-		return id;
-	}
-	public void setId(int id) {
-		this.id = id;
 	}
 	public String getCity() {
 		return city;
@@ -93,12 +83,6 @@ public class Address implements Serializable{
 	public void setPostalCode(String postalCode) {
 		this.postalCode = postalCode;
 	}
-	public boolean isShipping() {
-		return shipping;
-	}
-	public void setShipping(boolean shipping) {
-		this.shipping = shipping;
-	}
 	public boolean isBilling() {
 		return billing;
 	}
@@ -106,15 +90,27 @@ public class Address implements Serializable{
 		this.billing = billing;
 	}
 	
-	
 	@Override
 	public String toString() {
-		return "Address [id=" + id + ", user=" + user + ", addressLineOne=" + addressLineOne + ", addressLineTwo="
-				+ addressLineTwo + ", city=" + city + ", state=" + state + ", country=" + country + ", postalCode="
-				+ postalCode + ", shipping=" + shipping + ", billing=" + billing + "]";
+		return "Address [id=" + id + ", addressLineOne=" + addressLineOne + ", addressLineTwo=" + addressLineTwo
+				+ ", city=" + city + ", state=" + state + ", country=" + country + ", postalCode=" + postalCode
+				+ ", billing=" + billing + "]";
+	}
+		
+	@Column(name = "user_id")
+	private int userId;
+	public boolean isShipping() {
+		return shipping;
+	}
+	public void setShipping(boolean shipping) {
+		this.shipping = shipping;
+	}
+	public int getUserId() {
+		return userId;
+	}
+	public void setUserId(int userId) {
+		this.userId = userId;
 	}
 	
 	
-	
-
 }

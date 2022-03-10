@@ -10,6 +10,9 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.OneToOne;
 import javax.persistence.Table;
+import javax.persistence.Transient;
+
+import org.hibernate.validator.constraints.NotBlank;
 
 @Entity
 @Table(name="user_detail")
@@ -23,31 +26,54 @@ public class User implements Serializable {
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private int id;
-	
+
+	@NotBlank(message = "Please enter your first name!")
 	@Column(name="first_name")
 	private String firstName;
-	
+
+	@NotBlank(message = "Please enter your last name!")
 	@Column(name="last_name")
 	private String lastName;
-	
+
+	@NotBlank(message = "Please enter your number!")
 	@Column(name="contact_number")
 	private String contactNumber;
 	
+	@NotBlank(message = "Please enter your email!")
+	private String email;
+	
+	@NotBlank(message = "Please enter your password!")
+	private String password;
+	
+	private String role;
+	
+	@Transient
+	private String confirmPassword;
+	
+	
+	
+	public String getConfirmPassword() {
+		return confirmPassword;
+	}
+	public void setConfirmPassword(String confirmPassword) {
+		this.confirmPassword = confirmPassword;
+	}
 	public String getContactNumber() {
 		return contactNumber;
 	}
 	public void setContactNumber(String contactNumber) {
 		this.contactNumber = contactNumber;
 	}
-	private String email;
+	
 	public String getEmail() {
 		return email;
 	}
 	public void setEmail(String email) {
 		this.email = email;
 	}
-	private String role;
-	private String password;
+	
+	
+
 	private boolean enabled = true;
 	//mappedby ="user" user diambil dari model cart yang onetoone ke modul user
 	@OneToOne(mappedBy = "user", cascade = CascadeType.ALL)
