@@ -12,6 +12,7 @@ $(function() {
 		$('#home').addClass("active");
 		break;
 	}
+	
 
 	var $table = $('#productListTable');
 
@@ -307,6 +308,52 @@ $(function() {
 		})
 	}
 	
+	//login form
+	$loginForm = $('#loginForm');
+	if(loginForm.length){
+		loginForm.validate({
+			rules : {
+				username :{
+					required: true,
+					email: true,
+				},
+				
+				password :{
+					required: true
+				}
+				
+			},
+			messages :{
+				
+				username :{
+					required: 'Please enter the username',
+					minlength: 'Please enter your valid email'
+				},
+					
+				password :{
+					required: 'Please enter the password!'
+				}
+			},
+			
+			errorElement: 'em',
+			errorPlacement: function(error,element){
+				error.addClass('help-block');
+				error.insertAfter(element);
+			}
+			
+			
+		})
+	}
 	
+	//to tackle the csrf token
+	var token =  $('meta[name="_csrf"]').attr('content');
+	var header =  $('meta[name="_csrf_header"]').attr('content');
+	if(token.length> 0 && header.length > 0){ 
+		//set the token header for ajax request
+		$(dokument).ajaxSend(function(e, xhr, options){
+			 xhr.setRequestHeader(header,token);
+			 
+		});
+	}
 
 });

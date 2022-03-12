@@ -27,7 +27,7 @@ public class HibernateConfig {
 	
 	
 	//dataSOurce bean will be availabe
-	@Bean
+	@Bean("dataSource")
 	public DataSource getDataSource() {
 		BasicDataSource dataSource = new BasicDataSource();
 		

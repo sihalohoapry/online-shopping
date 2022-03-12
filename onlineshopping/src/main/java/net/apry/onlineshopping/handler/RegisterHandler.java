@@ -3,6 +3,7 @@ package net.apry.onlineshopping.handler;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.binding.message.MessageBuilder;
 import org.springframework.binding.message.MessageContext;
+import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.stereotype.Component;
 
 import net.apry.onlineshopping.model.RegisterModel;
@@ -16,6 +17,9 @@ public class RegisterHandler {
 	
 	@Autowired
 	private UserDAO userDAO;
+	
+	@Autowired
+	private BCryptPasswordEncoder passwordEncode;
 	
 	public RegisterModel init() {
 		return new RegisterModel();
@@ -49,7 +53,7 @@ public class RegisterHandler {
 	public String saveAll(RegisterModel model) {
 		String transitionValue ="success";
 		
-		//fetch the user
+		//fetch the user	
 		
 		User user = model.getUser();
 		  
@@ -58,6 +62,9 @@ public class RegisterHandler {
 			cart.setUser(user);
 			user.setCart(cart);
 		}
+		
+		//encode password
+		user.setPassword(passwordEncode.encode(user.getPassword()));
 		
 		// save the user
 		userDAO.addUser(user);

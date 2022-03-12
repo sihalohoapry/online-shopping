@@ -23,8 +23,10 @@
 	window.menu = '${title}';
 	window.contextRoot = '${contextRoot}';
 </script>
-<!-- Favicon-->
-<link rel="icon" type="image/x-icon" href="assets/favicon.ico" />
+<!-- Favicon
+	<link rel="icon" type="image/x-icon" href="assets/favicon.ico" />
+-->
+
 <!-- Bootstrap icons-->
 <link
 	href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.5.0/font/bootstrap-icons.css"
@@ -36,9 +38,7 @@
 <link href="${css}/datatables.css" rel="stylesheet" />
 <link href="${css}/myapp.css" rel="stylesheet" />
 
-<script type="text/javascript"
-	src="https://ff.kis.v2.scr.kaspersky-labs.com/FD126C42-EBFA-4E12-B309-BB3FDD723AC1/main.js?attr=ZeHfUapcarOFQ6ypv8RfJnuxT_oUgX7sfiPfFtV45U0ANA7O8JOdBMe1rl5P2SMXAcP_ET91xkDxEYmgIWoRy1XgMSckYzhOnZ_yH_BRbw0"
-	charset="UTF-8"></script>
+
 </head>
 <body>
 
