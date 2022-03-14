@@ -6,10 +6,10 @@
 
 			<div class="row">
 				<!-- ADD BREADCRUMB -->
-				<div class="row mb-3">
+				<div class="row mb-3" style="margin-left: 20px;">
 
 					<c:if test="${userClickAllProducts == true }">
-					<script>
+						<script>
 							window.categoryId = '';
 						</script>
 
@@ -40,38 +40,47 @@
 				</div>
 
 				<div class="row mb-5">
-					<table id="productListTable"
-						class="table table-striped table-bordered ">
 
-						<thead>
+					<div class="container-fluid">
 
-							<tr>
+						<div class="table-responsive p-2">
+							<table id="productListTable"
+								class="table table-striped">
 
-								<th>Name</th>
-								<th>Brand</th>
-								<th>Price</th>
-								<th>Qty. Available</th>
-								<th></th>
+								<thead>
 
-							</tr>
+									<tr>
 
-						</thead>
+										<th>Name</th>
+										<th>Brand</th>
+										<th>Price</th>
+										<th>Qty. Available</th>
+										<th></th>
 
-						<tfoot>
+									</tr>
 
-							<tr>
+								</thead>
 
-								<th>Name</th>
-								<th>Brand</th>
-								<th>Price</th>
-								<th>Qty. Available</th>
-								<th></th>
+								<tfoot>
 
-							</tr>
+									<tr>
 
-						</tfoot>
+										<th>Name</th>
+										<th>Brand</th>
+										<th>Price</th>
+										<th>Qty. Available</th>
+										<th></th>
 
-					</table>
+									</tr>
+
+								</tfoot>
+
+							</table>
+						</div>
+
+					</div>
+
+
 				</div>
 			</div>
 
