@@ -33,7 +33,6 @@
 				Price: <strong>Rp ${product.untiPrice}</strong>
 			</h4>
 
-
 			<c:choose>
 
 				<c:when test="${product.quantity <1 }">
@@ -54,23 +53,35 @@
 
 			</c:choose>
 
+			
+			<security:authorize access="isAnonymous() or hasAuthority('USER')">
+				<c:choose>
 
-			<c:choose>
+					<c:when test="${product.quantity <1}">
 
-				<c:when test="${product.quantity <1}">
+						<a href="javascript:void(0)" class="btn btn-success disabled">
+							<strike>Add to Cart</strike>
+						</a>
 
-					<a href="javascript:void(0)" class="btn btn-success disabled"> <strike>Add to Cart</strike>  </a>
+					</c:when>
 
-				</c:when>
+					<c:otherwise>
 
-				<c:otherwise>
+						<a href="${contextRoot}/cart/add/${product.id}/product"
+							class="btn btn-success">Add to Cart</a>
 
-					<a href="${contextRoot}/cart/add/${product.id}/product"
-						class="btn btn-success">Add to Cart</a>
+					</c:otherwise>
 
-				</c:otherwise>
+				</c:choose>
+			</security:authorize>
+			
+			<security:authorize access="hasAuthority('ADMIN')">
+			
+				<a href="${contextRoot}/manage/${product.id}/product"
+							class="btn btn-warning">Edit</a>
+			
+			</security:authorize>
 
-			</c:choose>
 
 
 			<a href="${contextRoot}/show/all/product" class="btn btn-primary">Back</a>
