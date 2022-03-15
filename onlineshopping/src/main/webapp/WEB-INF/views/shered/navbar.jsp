@@ -17,9 +17,9 @@
 				<li class="nav-item"><a class="nav-link" id="about"
 					aria-current="page" href="${contextRoot}/about">About</a></li>
 				<li class="nav-item dropdown"><a
-					class="nav-link dropdown-toggle" id="navbarDropdown" href="#"
+					class="nav-link dropdown-toggle" id="navbarDropdown2" href="#"
 					role="button" data-bs-toggle="dropdown" aria-expanded="false">Shop</a>
-					<ul class="dropdown-menu" aria-labelledby="navbarDropdown">
+					<ul id="listCategory" class="dropdown-menu" aria-labelledby="">
 						<li><a class="dropdown-item"
 							href="${contextRoot}/show/all/products">All Products</a></li>
 
@@ -63,13 +63,13 @@
 				
 				<security:authorize access="isAuthenticated()">
 
-					<li class="nav-item dropdown" style="list-style-type: none; text-decoration:none;">
-					<a class="nav-link dropdown-toggle" style="text-decoration:none;" id="navbarDropdown" href="#"
+					<li class="nav-item dropdown"  style="list-style-type: none; text-decoration:none;">
+					<a class="nav-link dropdown-toggle" style="text-decoration:none;" id="navbarDropdown1" href="#"
 						role="button" data-bs-toggle="dropdown" aria-expanded="false">${userModel.fullname}</a>
-						<ul class="dropdown-menu" aria-labelledby="navbarDropdown">
+						<ul class="dropdown-menu" aria-labelledby="navbarDropdown1">
 
 							<security:authorize access="hasAuthority('USER')">
-								<li><a class="dropdown-item" href="${contextRoot}/cart"><i
+								<li><a class="dropdown-item" href="${contextRoot}/cart/show"><i
 										class="bi-cart-fill me-1"></i> ${userModel.cart.cartLines }</a></li>
 								<li class="divider" role="separator"></li>
 
