@@ -11,7 +11,7 @@ import net.apry.shoppingbackend.dao.CartLineDAO;
 import net.apry.shoppingbackend.dto.Cart;
 import net.apry.shoppingbackend.dto.CartLine;
 
-@Repository
+@Repository("cartLineDAO")
 @Transactional
 public class CartLineDAOImpl implements CartLineDAO {
 	
@@ -79,14 +79,14 @@ public class CartLineDAOImpl implements CartLineDAO {
 	}
 
 	@Override
-	public CartLine getByCartAndProduct(int cartId, int productId) {
-		String query = "FROM CartLine WHERE cartId = :cartId AND productId = :productId";
+	public CartLine getByCartAndProduct(int cartId, int product_id) {
+		String query = "FROM CartLine WHERE cartId = :cartId AND product_id = :product_id";
 		
 		try {
 			return sessionFactory.getCurrentSession()
 					.createQuery(query,CartLine.class)
 					.setParameter("cartId", cartId)
-					.setParameter("productId", productId)
+					.setParameter("product_id", product_id)
 					.getSingleResult();
 			
 		} catch (Exception e) {
