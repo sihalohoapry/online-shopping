@@ -131,7 +131,7 @@ public class ManagementController {
 	public String handleProductActivation(@PathVariable int id) {
 		
 		Product product = productDAO.get(id);
-		boolean isActive = product.isActive();
+		boolean isActive = product.isActive();	
 		
 		product.setActive(!product.isActive());
 		

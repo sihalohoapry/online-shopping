@@ -26,15 +26,15 @@
 <!-- Favicon
 	<link rel="icon" type="image/x-icon" href="assets/favicon.ico" />
 -->
-
 <!-- Bootstrap icons-->
 <link
 	href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.5.0/font/bootstrap-icons.css"
 	rel="stylesheet" />
+	
+	
 <!-- Core theme CSS (includes Bootstrap)-->
 
 <link href="${css}/bootstrap.css" rel="stylesheet" />
-
 <link href="${css}/datatables.css" rel="stylesheet" />
 <link href="${css}/myapp.css" rel="stylesheet" />
 
